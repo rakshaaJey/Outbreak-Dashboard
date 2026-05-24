@@ -29,19 +29,14 @@ const items = [
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "/inbox",
-    icon: Inbox,
-  },
-  {
     title: "Current Outbreaks",
     url: "/outbreaks",
     icon: Activity,
   },
   {
-    title: "Learning",
-    url: "/learning",
-    icon: BookOpen,
+    title: "Cases",
+    url: "/cases",
+    icon: MessageSquare,
   },
   {
     title: "Search",

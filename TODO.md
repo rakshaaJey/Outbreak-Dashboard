@@ -5,29 +5,25 @@
 *Deadline*: May 25th, 2026
 
 # Feature List
-1. Outbreak predictions
+1. **Outbreak Analysis**
     - Map view of area with calendar input to look at past outbreaks & the predicted future outbreaks
     - List view with calendar 
-2. Outbreak management 
-    - Input new outbreaks
-        - Create contacts & cases associated with the outbreak
-        - Assign contacts to case workers
-    - Allow hospitals or long term care homes to report suspected outbreaks 
-        - Different view for non-case workers vs case workers
-    - Create seamless communication between units (hospitals, long term care homes, municiplities, etc) & case/outbreak workers
-    - Training Integration - Leverage AI solutions to train new employees on how to handle case contacts via simulated calls
-        - Record and grade case calls(?) 
+    - Outbreak predictor 
+        - Predicts number of expected cases for the next x months
+2. **Outbreak management**
+    - Outbreak View -> Provides an overview of the outbreak including an epi curve & line list 
+        - Input new outbreaks
+            - Create contacts & cases associated with the outbreak
+            - Assign contacts to case workers
+        - Dashboard view of open cases, closed cases, types of viruses/bacteria/etc. 
+        - Manager View: Cases handled by employees, other relevant "grading" notes for employees
+    - Case View -> Looks at individual cases
+        - Call cases through the software with transcription 
+        - Add notes to each case
     - Manager vs employee views of outbreak management
         - Employee see cases, contacts associated with those cases, TODOs & any notes associated with the case
         - Managers see what employees see with the additional fuctionality of adding employees to outbreaks/cases 
-    - Line List & epi curves for cases management
     - In house AI-Agent that helps case workers with analysis, answers logistics questions & outbreak questions
-3. Outbreak Statistics
-    - Dashboard view of open cases, closed cases, types of viruses/bacteria/etc. 
-    - Manager View: Cases handled by employees, other relevant "grading" notes for employees
-
-### Working Demo for YC
-- Attempt to code the prediction model for the future outbreaks 
-    - Typescript + vite site
-    - Attempt to maybe make a mock up dashboard (coded?)
-
+3. External Communication 
+    - Allow hospitals or long term care homes to report suspected outbreaks 
+        - Different view for non-case workers vs case workers
