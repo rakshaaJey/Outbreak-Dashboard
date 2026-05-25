@@ -9,9 +9,14 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import dynamic from "next/dynamic";
 import { StatsView } from "@/components/stats-view";
-import { MapView } from "@/components/map-view";
 import { DateRangePicker } from "@/components/date-range-picker";
+
+const MapView = dynamic(
+  () => import("@/components/map-view").then((m) => m.MapView),
+  { ssr: false }
+);
 
 const STATUS_OPTIONS = ["All", "Active", "Inactive"] as const;
 
