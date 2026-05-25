@@ -36,12 +36,12 @@ const items = [
   {
     title: "Cases",
     url: "/cases",
-    icon: MessageSquare,
+    icon: Inbox,
   },
   {
-    title: "Search",
-    url: "/search",
-    icon: Search,
+    title: "Demi",
+    url: "/demi",
+    icon: MessageSquare,
   },
 ];
 
@@ -49,7 +49,7 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader className="p-4">
-        <h1 className="text-lg font-semibold">Outbreak Dashboard</h1>
+        <h1 className="text-lg font-semibold">TRACE</h1>
       </SidebarHeader>
 
       <SidebarContent>

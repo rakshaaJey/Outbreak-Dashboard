@@ -38,7 +38,7 @@ export default function Home() {
       {/* Page header */}
       <div className="shrink-0 mb-4">
         <h1 className="text-2xl font-bold">Dashboard</h1>
-        <p className="text-muted-foreground">View your data as stats or on a map.</p>
+        <p className="text-muted-foreground">Current information about outbreaks in healthcare settings in Toronto</p>
       </div>
 
       <Tabs defaultValue="stats" className="flex-1 min-h-0 w-full">

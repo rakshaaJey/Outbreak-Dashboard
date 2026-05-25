@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Outbreak Manager",
-  description: "Outbreak Manager is a powerful tool for tracking and managing disease outbreaks. It provides real-time data, analytics, and resources to help public health officials and researchers respond effectively to emerging threats.",
+  title: "TRACE",
+  description: "TRACE is a powerful tool for tracking and managing disease outbreaks. It provides real-time data, analytics, and resources to help public health officials and researchers respond effectively to emerging threats.",
 };
 
 export default function RootLayout({

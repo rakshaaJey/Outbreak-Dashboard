@@ -10,7 +10,7 @@
     - List view with calendar 
     - Outbreak predictor 
         - Predicts number of expected cases for the next x months
-2. **Outbreak management**
+2. **Outbreak Management**
     - Outbreak View -> Provides an overview of the outbreak including an epi curve & line list 
         - Input new outbreaks
             - Create contacts & cases associated with the outbreak
@@ -24,6 +24,6 @@
         - Employee see cases, contacts associated with those cases, TODOs & any notes associated with the case
         - Managers see what employees see with the additional fuctionality of adding employees to outbreaks/cases 
     - In house AI-Agent that helps case workers with analysis, answers logistics questions & outbreak questions
-3. External Communication 
+3. **External Communication**
     - Allow hospitals or long term care homes to report suspected outbreaks 
         - Different view for non-case workers vs case workers
