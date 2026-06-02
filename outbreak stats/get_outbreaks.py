@@ -2,6 +2,7 @@
 import requests
 import csv
 from datetime import datetime
+from pathlib import Path
  
 # Toronto Open Data is stored in a CKAN instance. It's APIs are documented here:
 # https://docs.ckan.org/en/latest/api/
@@ -17,9 +18,10 @@ package = requests.get(url, params = params).json()
  
 # Create CSV file
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-csv_filename = f"outbreaks.csv"
-csv_file = open(csv_filename, 'w', newline='', encoding='utf-8')
-csv_writer = None
+script_dir = Path(__file__).resolve().parent
+public_dir = script_dir.parent / "my-app" / "public"
+public_dir.mkdir(parents=True, exist_ok=True)
+csv_filename = public_dir / "outbreaks.csv"
 
 all_records = []
 
@@ -38,17 +40,14 @@ for idx, resource in enumerate(package["result"]["resources"]):
            if "records" in resource_search_data:
                records = resource_search_data["records"]
                all_records.extend(records)
-               
-               # Initialize CSV writer with first set of records
-               if csv_writer is None and records:
-                   fieldnames = records[0].keys()
-                   csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-                   csv_writer.writeheader()
-               
-               # Write records to CSV
-               for record in records:
-                   csv_writer.writerow(record)
 
-csv_file.close()
+if all_records:
+    # Use the union of all field names across records to avoid missing columns.
+    fieldnames = sorted({field for record in all_records for field in record.keys()})
+    with open(csv_filename, 'w', newline='', encoding='utf-8') as csv_file:
+        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        csv_writer.writeheader()
+        csv_writer.writerows(all_records)
+
 print(f"Data saved to {csv_filename}")
 print(f"Total records: {len(all_records)}")
