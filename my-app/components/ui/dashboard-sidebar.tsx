@@ -33,16 +33,16 @@ const items = [
     url: "/outbreaks",
     icon: Activity,
   },
-  {
-    title: "Cases",
-    url: "/cases",
-    icon: Inbox,
-  },
-  {
-    title: "Demi",
-    url: "/demi",
-    icon: MessageSquare,
-  },
+  // {
+  //   title: "Cases",
+  //   url: "/cases",
+  //   icon: Inbox,
+  // },
+  // {
+  //   title: "Demi",
+  //   url: "/demi",
+  //   icon: MessageSquare,
+  // },
 ];
 
 export function AppSidebar() {
