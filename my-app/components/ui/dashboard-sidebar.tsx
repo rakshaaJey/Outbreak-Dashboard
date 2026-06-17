@@ -7,6 +7,7 @@ import {
   Search,
   Settings,
   MessageSquare,
+  Library,
 } from "lucide-react";
 
 import {
@@ -32,6 +33,11 @@ const items = [
     title: "Current Outbreaks",
     url: "/outbreaks",
     icon: Activity,
+  },
+  {
+    title: "Resources",
+    url: "/resources",
+    icon: Library,
   },
   // {
   //   title: "Cases",

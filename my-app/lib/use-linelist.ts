@@ -36,5 +36,25 @@ export function useLinelist(outbreakId: string) {
     try { localStorage.removeItem(KEY(outbreakId)); } catch {}
   }, [outbreakId]);
 
-  return { data, loaded, upload, clear };
+  const addRow = useCallback((row: LinelistRow) => {
+    setData((prev) => {
+      if (!prev) return prev;
+      const next = { ...prev, rows: [...prev.rows, row] };
+      try { localStorage.setItem(KEY(outbreakId), JSON.stringify(next)); } catch {}
+      return next;
+    });
+  }, [outbreakId]);
+
+  const updateRow = useCallback((index: number, row: LinelistRow) => {
+    setData((prev) => {
+      if (!prev) return prev;
+      const rows = [...prev.rows];
+      rows[index] = row;
+      const next = { ...prev, rows };
+      try { localStorage.setItem(KEY(outbreakId), JSON.stringify(next)); } catch {}
+      return next;
+    });
+  }, [outbreakId]);
+
+  return { data, loaded, upload, clear, addRow, updateRow };
 }

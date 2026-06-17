@@ -1,0 +1,6 @@
+Name,Role,Gender,Unit,Onset Date,Fever,Cough,Sore Throat,Runny Nose,Lab Confirmed
+Alice Martins,Resident,Female,2 East,2024-01-15,Y,Y,N,Y,N
+Bob Okafor,Resident,Male,2 East,2024-01-15,Y,N,Y,N,N
+Carol Huang,Resident,Female,2 East,2024-01-16,N,Y,N,Y,N
+David Singh,Resident,Male,3 West,2024-01-20,N,N,N,Y,N
+Emma Torres,Staff,Female,3 West,2024-01-21,N,Y,N,N,N

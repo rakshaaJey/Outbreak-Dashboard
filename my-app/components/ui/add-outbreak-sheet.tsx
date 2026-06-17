@@ -38,8 +38,13 @@ const EMPTY_FORM = {
   type: "",
   causativeAgent: "",
   startDate: "",
+  endDate: "",
   agentIdentifiedDate: "",
   active: true,
+  outbreakNumber: "",
+  investigator: "",
+  facilityContact: "",
+  affectedFloors: "",
 };
 
 type FormState = typeof EMPTY_FORM;
@@ -57,8 +62,13 @@ function formFromOutbreak(o: ManagedOutbreak): FormState {
     type: o.type,
     causativeAgent: o.causativeAgent,
     startDate: o.startDate,
+    endDate: o.endDate ?? "",
     agentIdentifiedDate: o.agentIdentifiedDate,
     active: o.active,
+    outbreakNumber: o.outbreakNumber ?? "",
+    investigator: o.investigator ?? "",
+    facilityContact: o.facilityContact ?? "",
+    affectedFloors: o.affectedFloors ?? "",
   };
 }
 
@@ -101,8 +111,14 @@ export function AddOutbreakSheet({ open, onOpenChange, onAdd, initial }: AddOutb
       type: form.type,
       causativeAgent: form.causativeAgent.trim(),
       startDate: form.startDate,
+      endDate: form.endDate,
       agentIdentifiedDate: form.agentIdentifiedDate,
       active: form.active,
+      outbreakNumber: form.outbreakNumber.trim(),
+      investigator: form.investigator.trim(),
+      facilityContact: form.facilityContact.trim(),
+      affectedFloors: form.affectedFloors.trim(),
+      assigned: true,
     });
     setForm(EMPTY_FORM);
     setErrors({});
@@ -196,7 +212,7 @@ export function AddOutbreakSheet({ open, onOpenChange, onAdd, initial }: AddOutb
           </div>
 
           <div>
-            <label className={labelClass}>Outbreak Start Date *</label>
+            <label className={labelClass}>Outbreak Declared Date *</label>
             <input
               type="date"
               className={fieldClass}
@@ -204,6 +220,16 @@ export function AddOutbreakSheet({ open, onOpenChange, onAdd, initial }: AddOutb
               onChange={(e) => setField("startDate", e.target.value)}
             />
             {errors.startDate && <p className={errorClass}>{errors.startDate}</p>}
+          </div>
+
+          <div>
+            <label className={labelClass}>Outbreak End Date</label>
+            <input
+              type="date"
+              className={fieldClass}
+              value={form.endDate}
+              onChange={(e) => setField("endDate", e.target.value)}
+            />
           </div>
 
           <div>
@@ -227,6 +253,51 @@ export function AddOutbreakSheet({ open, onOpenChange, onAdd, initial }: AddOutb
             <label htmlFor="outbreak-active" className="text-sm font-medium cursor-pointer">
               Outbreak is currently active
             </label>
+          </div>
+
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide pt-2 border-t">
+            Administrative
+          </p>
+
+          <div>
+            <label className={labelClass}>Outbreak #</label>
+            <input
+              className={fieldClass}
+              value={form.outbreakNumber}
+              onChange={(e) => setField("outbreakNumber", e.target.value)}
+              placeholder="e.g. 2024-0042"
+            />
+          </div>
+
+          <div>
+            <label className={labelClass}>Investigator</label>
+            <input
+              className={fieldClass}
+              value={form.investigator}
+              onChange={(e) => setField("investigator", e.target.value)}
+              placeholder="Investigator name"
+            />
+          </div>
+
+          <div>
+            <label className={labelClass}>Facility Contact (name &amp; phone)</label>
+            <textarea
+              className={`${fieldClass} resize-none`}
+              rows={2}
+              value={form.facilityContact}
+              onChange={(e) => setField("facilityContact", e.target.value)}
+              placeholder={"Jane Smith – 416-555-0100\nJohn Doe – 416-555-0101"}
+            />
+          </div>
+
+          <div>
+            <label className={labelClass}>Affected Floor(s)</label>
+            <input
+              className={fieldClass}
+              value={form.affectedFloors}
+              onChange={(e) => setField("affectedFloors", e.target.value)}
+              placeholder="e.g. 3rd Floor, 4th Floor West"
+            />
           </div>
         </form>
 
