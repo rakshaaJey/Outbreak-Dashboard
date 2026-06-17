@@ -7,6 +7,7 @@ import {
   Search,
   Settings,
   MessageSquare,
+  Library,
 } from "lucide-react";
 
 import {
@@ -34,15 +35,20 @@ const items = [
     icon: Activity,
   },
   {
-    title: "Cases",
-    url: "/cases",
-    icon: Inbox,
+    title: "Resources",
+    url: "/resources",
+    icon: Library,
   },
-  {
-    title: "Demi",
-    url: "/demi",
-    icon: MessageSquare,
-  },
+  // {
+  //   title: "Cases",
+  //   url: "/cases",
+  //   icon: Inbox,
+  // },
+  // {
+  //   title: "Demi",
+  //   url: "/demi",
+  //   icon: MessageSquare,
+  // },
 ];
 
 export function AppSidebar() {
